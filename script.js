@@ -43,7 +43,23 @@ function convertValues() {
 }
 //parei aqui no trocar nome e bandeira
 function changeCurrency () {
-    
+    const currencyName = document.getElementById("currency-name")
+    const currencyImage = document.querySelector(".currency-img")
+
+    if(currencySelect.value == "dollar") {
+        currencyName.innerHTML = "American Dollar"
+        currencyImage.src = "assets/dollar.png"
+    }
+    if(currencySelect.value == "euro") {
+        currencyName.innerHTML = "Euro"
+        currencyImage.src = "assets/euro.png"
+    }
+    if(currencySelect.value == "pound") {
+        currencyName.innerHTML = "Pound Sterling"
+        currencyImage.src = "assets/libra.png"
+    }
+
+    convertValues() 
 }
 currencySelect.addEventListener("change", changeCurrency)
 convertButton.addEventListener("click", convertValues) // idenfitica quando o botão é clicado
