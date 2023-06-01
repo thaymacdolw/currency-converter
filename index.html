@@ -20,35 +20,37 @@
         </label>
         <label>
             Convert <b>to</b>
-            <select>
-                <option>US$ American Dollar</option>
-                <option>€ Euro</option>
-                <option>£ Pound Sterling</option>
-                <option>₿ Bitcoin</option>
+            <select class="currency-select">
+                <option value="dollar">US$ American Dollar</option>
+                <option value="euro">€ Euro</option>
+                <option value="pound">£ Pound Sterling</option>
+                <!--Ao adicionar o value com um nome mais "cru" evita conflitos no JS-->
             </select>
         </label>
         <label>
             Value
-            <input placeholder="R$ 10.000,00">
+            <input class="input-currency" placeholder="R$ 10.000,00">
         </label>
-        <button>Convert</button>
+        <button class="convert-button">Convert</button>
         <section>
             <div class="currency-box">
                 <img src="assets/real.png" alt="brazilian flag">
                 <p class="currency">Real</p>
-                <p class="currency-value">R$ 0,00</p>
+                <p class="currency-value" id="real">R$ 0,00</p>
             </div>
             <img class="arrow-img" src="assets/Vector.png" alt="arrow">
             <div class="currency-box">
                 <img src="assets/dollar.png" alt="american flag">
-                <p class="currency">Dollar</p>
-                <p class="currency-value">US$ 0,00</p>
+                <p class="currency" id="currency-name">American Dollar</p>
+                <p class="currency-value" id="other-currencies">US$ 0,00</p>
             </div>
         </section>
     </main>
     <footer>
-        <p>Designed by <a href="https://www.linkedin.com/school/dev-club-devs/" target="_blank">DevClub</a> and Coded by <a href="https://www.linkedin.com/in/thaynamacdolw/" target="_blank">Thayna MacDolw</a></p>
+        <p>Designed by <a href="https://www.linkedin.com/school/dev-club-devs/" target="_blank">DevClub</a> and Coded by
+            <a href="https://www.linkedin.com/in/thaynamacdolw/" target="_blank">Thayna MacDolw</a></p>
     </footer>
 </body>
+<script src="script.js"></script>
 
 </html>
