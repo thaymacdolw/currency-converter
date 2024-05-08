@@ -1,6 +1,10 @@
 const convertButton = document.querySelector(".convert-button"); //seleciona o botão
 const currencySelect = document.querySelector(".currency-select") // Selecionando a moeda
 
+const dollarToday = 5
+const euroToday = 5.39
+const poundToday = 6.28
+
 function convertValues() {
     const inputCurrencyValue = document.querySelector(".input-currency").value // pega o valor digitado no input
 
@@ -9,9 +13,10 @@ function convertValues() {
 
     console.log(currencySelect.value)
 
-    const dollarToday = 5
-    const euroToday = 5.39
-    const poundToday = 6.28
+
+    const data= fetch("https://economia.awesomeapi.com.br/last/USD-BRL,EUR-BRL,BTC-BRL").then(response => response.json())
+    
+    console.log(data)
 
     if (currencySelect.value == "dollar") {
         //  Se o dólar for selecionado, entra aqui
@@ -42,24 +47,24 @@ function convertValues() {
     }).format(inputCurrencyValue)
 }
 //parei aqui no trocar nome e bandeira
-function changeCurrency () {
+function changeCurrency() {
     const currencyName = document.getElementById("currency-name")
     const currencyImage = document.querySelector(".currency-img")
 
-    if(currencySelect.value == "dollar") {
+    if (currencySelect.value == "dollar") {
         currencyName.innerHTML = "American Dollar"
         currencyImage.src = "assets/dollar.png"
     }
-    if(currencySelect.value == "euro") {
+    if (currencySelect.value == "euro") {
         currencyName.innerHTML = "Euro"
         currencyImage.src = "assets/euro.png"
     }
-    if(currencySelect.value == "pound") {
+    if (currencySelect.value == "pound") {
         currencyName.innerHTML = "Pound Sterling"
         currencyImage.src = "assets/libra.png"
     }
 
-    convertValues() 
+    convertValues()
 }
 currencySelect.addEventListener("change", changeCurrency)
 convertButton.addEventListener("click", convertValues) // idenfitica quando o botão é clicado
