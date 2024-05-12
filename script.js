@@ -1,22 +1,22 @@
 const convertButton = document.querySelector(".convert-button"); //seleciona o botão
 const currencySelect = document.querySelector(".currency-select") // Selecionando a moeda
 
-const dollarToday = 5
-const euroToday = 5.39
-const poundToday = 6.28
 
-function convertValues() {
+
+const convertValues = async () => {
     const inputCurrencyValue = document.querySelector(".input-currency").value // pega o valor digitado no input
 
     const currencyValueToConvert = document.querySelector("#real")// Value in Reais / pega o valor digitado no input real
     const currencyValueConverted = document.querySelector("#other-currencies")// Outras moedas / pega o valor convertido 
+    // async await - avisa ao servidor para esperar retornar o dado para depois continuar a execução - só pode funcionar dentro de uma função.
+    const data = await fetch("https://economia.awesomeapi.com.br/last/USD-BRL,EUR-BRL,BTC-BRL,GBP-BRL").then(response => response.json());
 
-    console.log(currencySelect.value)
+    const dollarToday = data.USDBRL.high
+    const euroToday = data.EURBRL.high
+    const poundToday = data.GBPBRL.high
 
-
-    const data= fetch("https://economia.awesomeapi.com.br/last/USD-BRL,EUR-BRL,BTC-BRL").then(response => response.json())
-    
-    console.log(data)
+    console.log(currencySelect.value);
+    console.log(data);
 
     if (currencySelect.value == "dollar") {
         //  Se o dólar for selecionado, entra aqui
@@ -46,7 +46,7 @@ function convertValues() {
         currency: "BRL"
     }).format(inputCurrencyValue)
 }
-//parei aqui no trocar nome e bandeira
+
 function changeCurrency() {
     const currencyName = document.getElementById("currency-name")
     const currencyImage = document.querySelector(".currency-img")
