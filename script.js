@@ -1,8 +1,6 @@
 const convertButton = document.querySelector(".convert-button"); //seleciona o botão
 const currencySelect = document.querySelector(".currency-select") // Selecionando a moeda
 
-
-
 const convertValues = async () => {
     const inputCurrencyValue = document.querySelector(".input-currency").value // pega o valor digitado no input
 
